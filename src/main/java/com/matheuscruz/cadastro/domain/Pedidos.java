@@ -88,13 +88,6 @@ public class Pedidos implements Serializable{
 		this.totalValue = totalValue;
 	}
 	
-	
-
-	@Override
-	public String toString() {
-		return "Pedidos [id=" + id + ", number=" + number + ", date=" + date + ", percentualDiscount="
-				+ percentualDiscount + ", totalValue=" + totalValue + "]";
-	}
 
 	@Override
 	public int hashCode() {
