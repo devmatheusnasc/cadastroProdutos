@@ -8,6 +8,7 @@ public class CadastroProdutosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CadastroProdutosApplication.class, args);
+		
 	}
 
 }
