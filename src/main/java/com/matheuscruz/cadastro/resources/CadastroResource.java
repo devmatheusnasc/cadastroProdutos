@@ -21,7 +21,7 @@ import com.matheuscruz.cadastro.dto.CadastroDTO;
 import com.matheuscruz.cadastro.services.CadastroService;
 
 @RestController
-@RequestMapping(value = "/api/orders/")
+@RequestMapping(value = "/api/items")
 public class CadastroResource {
 
 	@Autowired

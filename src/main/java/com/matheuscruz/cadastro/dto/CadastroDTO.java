@@ -11,8 +11,9 @@ public class CadastroDTO implements Serializable {
 	private static final long serialVersionUID = 4384391168434254251L;
 	
 	
-	private UUID id;
 	
+	private UUID id;
+
 	@NotEmpty(message="Preenchimento  obrigatório")
 	private String description;
 	
@@ -34,14 +35,6 @@ public class CadastroDTO implements Serializable {
 		
 	}
 	
-
-	public UUID getId() {
-		return id;
-	}
-
-	public void setId(UUID id) {
-		this.id = id;
-	}
 
 	public String getDescription() {
 		return description;
@@ -65,6 +58,14 @@ public class CadastroDTO implements Serializable {
 
 	public void setType(char type) {
 		this.type = type;
+	}
+
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
 	}
 	
 	

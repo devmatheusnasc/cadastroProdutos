@@ -21,7 +21,7 @@ import com.matheuscruz.cadastro.dto.PedidosDTO;
 import com.matheuscruz.cadastro.services.PedidosService;
 
 @RestController
-@RequestMapping(value = "/api/orders/")
+@RequestMapping(value = "/api/orders")
 public class PedidosResource {
 
 	@Autowired

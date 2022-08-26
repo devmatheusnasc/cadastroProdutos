@@ -18,10 +18,10 @@ import com.matheuscruz.cadastro.services.exceptions.ObjectNotFoundException;
 public class CadastroService {
 	
 	@Autowired
-	private CadastroRepository pedidosRepository;
+	private CadastroRepository cadastroRepository;
 	
 	public Cadastro find(UUID id) {
-		Optional<Cadastro> obj = pedidosRepository.findById(id);
+		Optional<Cadastro> obj = cadastroRepository.findById(id);
 		if(obj == null) {
 			throw new ObjectNotFoundException("Objeto não encontrado! " + "Tipo: " + Cadastro.class.getName());
 		}
@@ -30,12 +30,12 @@ public class CadastroService {
 	}
 	public Cadastro insert(Cadastro obj) {
 		obj.setId(null);
-		return pedidosRepository.save(obj);
+		return cadastroRepository.save(obj);
 	}
 	
 	public Cadastro update(Cadastro obj ) {
 		find(obj.getId());
-		return pedidosRepository.save(obj);
+		return cadastroRepository.save(obj);
 	}
 	
 	public void delete(UUID id) {
@@ -43,7 +43,7 @@ public class CadastroService {
 		find(id);
 		
 		try {
-		pedidosRepository.deleteById(id);
+			cadastroRepository.deleteById(id);
 		}
 		catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Não é Possível excluir !!");
@@ -51,7 +51,7 @@ public class CadastroService {
 	}
 	
 	public List<Cadastro> findAll() {
-		return pedidosRepository.findAll();
+		return cadastroRepository.findAll();
 	}
 	
 	public Cadastro fromDTO(CadastroDTO objDto) {

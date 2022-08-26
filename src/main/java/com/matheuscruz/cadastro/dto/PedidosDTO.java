@@ -13,7 +13,7 @@ public class PedidosDTO implements Serializable {
 	
 	
 	private UUID id;
-	
+
 	@NotEmpty(message="Preenchimento  obrigatório")
 	private Integer number;
 	
@@ -23,7 +23,6 @@ public class PedidosDTO implements Serializable {
 	@NotEmpty(message="Preenchimento  obrigatório")
 	private double percentualDiscount;
 	
-	@NotEmpty(message="Preenchimento  obrigatório")
 	private double totalValue;
 
 
@@ -40,13 +39,6 @@ public class PedidosDTO implements Serializable {
 		
 	}
 
-	public UUID getId() {
-		return id;
-	}
-
-	public void setId(UUID id) {
-		this.id = id;
-	}
 
 	public Integer getNumber() {
 		return number;
@@ -72,6 +64,14 @@ public class PedidosDTO implements Serializable {
 		this.percentualDiscount = percentualDiscount;
 	}
 
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
+	}
+
 	public double getTotalValue() {
 		return totalValue;
 	}
@@ -79,9 +79,4 @@ public class PedidosDTO implements Serializable {
 	public void setTotalValue(double totalValue) {
 		this.totalValue = totalValue;
 	}
-
-	
-
-	
-
 }

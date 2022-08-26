@@ -14,9 +14,7 @@ import javax.persistence.Table;
 @Table(name = "cadastro")
 @Entity
 public class Cadastro implements Serializable {
-	private static final long serialVersionUID = 4384391168434254251L;
-
-	
+	private static final long serialVersionUID =1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

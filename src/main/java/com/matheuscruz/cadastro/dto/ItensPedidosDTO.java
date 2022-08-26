@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import javax.validation.constraints.NotEmpty;
 
-import com.matheuscruz.cadastro.domain.ItensPedidos;
+import com.matheuscruz.cadastro.domain.ItemsPedidos;
 
 public class ItensPedidosDTO implements Serializable {
 	private static final long serialVersionUID = 4384391168434254251L;
@@ -13,7 +13,6 @@ public class ItensPedidosDTO implements Serializable {
 	
 	private UUID id;
 	
-	@NotEmpty(message="Preenchimento  obrigatório")
 	private UUID order;
 	
 	@NotEmpty(message="Preenchimento  obrigatório")
@@ -22,7 +21,6 @@ public class ItensPedidosDTO implements Serializable {
 	@NotEmpty(message="Preenchimento  obrigatório")
 	private double quantity;
 	
-	@NotEmpty(message="Preenchimento  obrigatório")
 	private double totalValue;
 
 
@@ -30,7 +28,7 @@ public class ItensPedidosDTO implements Serializable {
 		
 	}
 	
-	public ItensPedidosDTO(ItensPedidos obj) {
+	public ItensPedidosDTO(ItemsPedidos obj) {
 		id = obj.getId();
 		order = obj.getOrder();
 		itemId = obj.getItemId();
