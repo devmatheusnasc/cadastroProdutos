@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.matheuscruz.cadastro.domain.Pedidos;
-import com.matheuscruz.cadastro.services.PedidosService;
+import com.matheuscruz.cadastro.domain.ItensPedidos;
+import com.matheuscruz.cadastro.services.ItensPedidosService;
 
 @RestController
 @RequestMapping(value = "/api/orders/")
-public class PedidosResource {
+public class ItensPedidosResource {
 
 	@Autowired
-	private PedidosService pedidosService;
+	private ItensPedidosService pedidosService;
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Pedidos> find( @PathVariable UUID id) {
+	public ResponseEntity<ItensPedidos> find( @PathVariable UUID id) {
 		
-		Pedidos obj = pedidosService.find(id);
+		ItensPedidos obj = pedidosService.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 

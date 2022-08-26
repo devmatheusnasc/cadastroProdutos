@@ -1,27 +1,23 @@
 package com.matheuscruz.cadastro.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-
-@Table(name="itens_pedido")
+@Table(name="itens")
 @Entity
-public class ItensPedido implements Serializable{
+public class ItensPedidos implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 
@@ -41,20 +37,16 @@ public class ItensPedido implements Serializable{
 	@Column
 	private double totalValue;
 	
-	@JsonIgnore
-	@ManyToMany
-	@JoinTable(name = "ITENS_PEDIDOS",
-			joinColumns = @JoinColumn(name = "Itens_id"),
-			inverseJoinColumns = @JoinColumn(name = "pedidos_id")	
-	)
-	private List<Pedidos> pedidos = new ArrayList<>();
 	
+	@ElementCollection
+	@CollectionTable(name = "DESCONTO")
+	private Set<String> percentualDescont = new HashSet<>();
 	
-	public ItensPedido() {
+	public ItensPedidos() {
 		
 	}
 
-	public ItensPedido(UUID id, UUID order, UUID itemId, double quantity, double totalValue) {
+	public ItensPedidos(UUID id, UUID order, UUID itemId, double quantity, double totalValue) {
 		super();
 		this.id = id;
 		this.order = order;
@@ -103,13 +95,6 @@ public class ItensPedido implements Serializable{
 		this.totalValue = totalValue;
 	}
 	
-	public List<Pedidos> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(List<Pedidos> pedidos) {
-		this.pedidos = pedidos;
-	}
 
 	@Override
 	public int hashCode() {
@@ -124,7 +109,7 @@ public class ItensPedido implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ItensPedido other = (ItensPedido) obj;
+		ItensPedidos other = (ItensPedidos) obj;
 		return Objects.equals(id, other.id) && Objects.equals(itemId, other.itemId);
 	}
 

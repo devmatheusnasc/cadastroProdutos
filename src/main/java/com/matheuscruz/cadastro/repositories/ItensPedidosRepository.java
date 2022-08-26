@@ -5,9 +5,9 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.matheuscruz.cadastro.domain.ItensPedido;
+import com.matheuscruz.cadastro.domain.ItensPedidos;
 
 @Repository
-public interface ItensPedidoRepository extends  JpaRepository<ItensPedido, UUID>{
+public interface ItensPedidosRepository extends  JpaRepository<ItensPedidos, UUID>{
 
 }
