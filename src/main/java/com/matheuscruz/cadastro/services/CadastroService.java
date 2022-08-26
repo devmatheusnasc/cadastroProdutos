@@ -1,5 +1,6 @@
 package com.matheuscruz.cadastro.services;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -46,6 +47,10 @@ public class CadastroService {
 		catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Não é Possível excluir !!");
 		}
+	}
+	
+	public List<Cadastro> findAll() {
+		return pedidosRepository.findAll();
 	}
 
 }
