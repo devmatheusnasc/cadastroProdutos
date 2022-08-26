@@ -2,6 +2,8 @@ package com.matheuscruz.cadastro.domain;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -10,13 +12,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 
 @Table(name= "pedidos")
 @Entity
 public class Pedidos implements Serializable{
 	private static final long serialVersionUID = 1L;
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,6 +32,7 @@ public class Pedidos implements Serializable{
 	private Integer number;
 	
 	@Column
+	@CreationTimestamp
 	private Timestamp date;
 	
 	@Column
@@ -34,6 +41,8 @@ public class Pedidos implements Serializable{
 	@Column
 	private double totalValue;
 	
+	@ManyToMany(mappedBy = "pedidos")
+	private List<ItensPedido> itenspedidos = new ArrayList<>();
 	
 	public Pedidos() {
 		
@@ -88,6 +97,14 @@ public class Pedidos implements Serializable{
 		this.totalValue = totalValue;
 	}
 	
+	public List<ItensPedido> getIntenspedidos() {
+		return itenspedidos;
+	}
+
+	public void setIntenspedidos(List<ItensPedido> intenspedidos) {
+		this.itenspedidos = intenspedidos;
+	}
+	
 
 	@Override
 	public int hashCode() {
@@ -105,5 +122,7 @@ public class Pedidos implements Serializable{
 		Pedidos other = (Pedidos) obj;
 		return Objects.equals(id, other.id);
 	}
+
+
 	
 }
