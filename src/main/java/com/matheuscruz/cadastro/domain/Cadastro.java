@@ -17,6 +17,7 @@ public class Cadastro implements Serializable {
 	private static final long serialVersionUID = 4384391168434254251L;
 
 	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;

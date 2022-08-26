@@ -16,6 +16,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Table(name="itens_pedido")
 @Entity
@@ -39,6 +41,7 @@ public class ItensPedido implements Serializable{
 	@Column
 	private double totalValue;
 	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "ITENS_PEDIDOS",
 			joinColumns = @JoinColumn(name = "Itens_id"),

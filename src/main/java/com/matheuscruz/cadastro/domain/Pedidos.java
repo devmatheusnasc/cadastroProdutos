@@ -23,7 +23,7 @@ import org.hibernate.annotations.CreationTimestamp;
 public class Pedidos implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	
+	// jsonManagedReference JsonBackRefence
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
@@ -41,6 +41,7 @@ public class Pedidos implements Serializable{
 	@Column
 	private double totalValue;
 	
+
 	@ManyToMany(mappedBy = "pedidos")
 	private List<ItensPedido> itenspedidos = new ArrayList<>();
 	

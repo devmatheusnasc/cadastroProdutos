@@ -17,6 +17,9 @@ public class PedidosService {
 	
 	public Pedidos buscar(UUID id) {
 		Optional<Pedidos> obj = pedidosRepository.findById(id);
+		if(obj == null) {
+			
+		}
 		return obj.orElse(null);
 		
 		
