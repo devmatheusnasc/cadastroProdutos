@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.matheuscruz.cadastro.domain.Cadastro;
+import com.matheuscruz.cadastro.dto.CadastroDTO;
 import com.matheuscruz.cadastro.repositories.CadastroRepository;
 import com.matheuscruz.cadastro.services.exceptions.DataIntegrityException;
 import com.matheuscruz.cadastro.services.exceptions.ObjectNotFoundException;
@@ -51,6 +52,10 @@ public class CadastroService {
 	
 	public List<Cadastro> findAll() {
 		return pedidosRepository.findAll();
+	}
+	
+	public Cadastro fromDTO(CadastroDTO objDto) {
+		return new  Cadastro(objDto.getId(), objDto.getDescription(),objDto.getValue(),objDto.getType());
 	}
 
 }

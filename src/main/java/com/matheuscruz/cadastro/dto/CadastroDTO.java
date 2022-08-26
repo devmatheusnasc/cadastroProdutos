@@ -3,6 +3,8 @@ package com.matheuscruz.cadastro.dto;
 import java.io.Serializable;
 import java.util.UUID;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.matheuscruz.cadastro.domain.Cadastro;
 
 public class CadastroDTO implements Serializable {
@@ -10,8 +12,14 @@ public class CadastroDTO implements Serializable {
 	
 	
 	private UUID id;
+	
+	@NotEmpty(message="Preenchimento  obrigatório")
 	private String description;
+	
+	@NotEmpty(message="Preenchimento  obrigatório")
 	private double value;
+	
+	@NotEmpty(message="Preenchimento  obrigatório")
 	private char type;
 
 	public CadastroDTO() {

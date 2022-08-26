@@ -11,8 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.matheuscruz.cadastro.domain.tyoe.TipoCadastro;
-
 @Table(name = "cadastro")
 @Entity
 public class Cadastro implements Serializable {
@@ -38,12 +36,12 @@ public class Cadastro implements Serializable {
 		
 	}
 
-	public Cadastro(UUID id, String description, double value, TipoCadastro type) {
+	public Cadastro(UUID id, String description, double value, char type) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.value = value;
-		this.type = type.getDescricao();
+		this.type = type;
 	}
 
 	public UUID getId() {
@@ -74,8 +72,8 @@ public class Cadastro implements Serializable {
 		return type;
 	}
 
-	public void setType(TipoCadastro type) {
-		this.type = type.getDescricao();
+	public void setType(char type) {
+		this.type = type;
 	}
 	
 
